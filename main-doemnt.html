@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KR1KE | Илья Богданчиков | Frontend & Backend Developer</title>
+    <meta name="description" content="Portfolio of Илья Богданчиков (KR1KE) - Experienced Frontend and Backend developer specializing in JavaScript, Vue, Node.js, and Nest.js">
+    <meta name="keywords" content="k1ke, krile, Богданчиков, Илья Богданчиков, Bogdanchikov, Frontend, Backend, js, javascript, JS, Node js, Vue, Nest js, developer, portfolio">
+    <meta name="author" content="Илья Богданчиков">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="KR1KE | Илья Богданчиков | Frontend & Backend Developer">
+    <meta property="og:description" content="Portfolio of Илья Богданчиков (KR1KE) - Experienced Frontend and Backend developer specializing in JavaScript, Vue, Node.js, and Nest.js">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://t.me/i/userpic/320/qGzg_dXC8YeLTw2-VFQMNtyfXQDqQ9dobV7wh6qj_U0.jpg">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;600;700&subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            font-family: 'Unbounded', 'Space Grotesk', sans-serif;
+        }
+        .animated-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background: linear-gradient(45deg, 
+                #0f1a1f,
+                #142228,
+                #1a1f2d,
+                #142832,
+                #0f1a1f
+            );
+            background-size: 400% 400%;
+            animation: gradient 8s ease infinite;
+            filter: blur(100px);
+            opacity: 0.7;
+        }
+        .animated-blob {
+            position: fixed;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(0,200,255,0.8) 0%, rgba(0,200,255,0) 70%);
+            border-radius: 50%;
+            filter: blur(30px);
+            animation: float 10s infinite;
+            z-index: 1;
+        }
+        .blob1 { top: 20%; left: 30%; animation-delay: 0s; }
+        .blob2 { top: 60%; left: 50%; animation-delay: -2s; background: radial-gradient(circle, rgba(0,128,255,0.8) 0%, rgba(0,128,255,0) 70%); }
+        .blob3 { top: 40%; left: 70%; animation-delay: -4s; background: radial-gradient(circle, rgba(64,220,255,0.8) 0%, rgba(64,220,255,0) 70%); }
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(2); }
+            33% { transform: translate(50px, -70px) scale(1.5); }
+            66% { transform: translate(-40px, 30px) scale(2.5); }
+            100% { transform: translate(0, 0) scale(2); }
+        }
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+        .project-card {
+            backdrop-filter: blur(8px);
+            background: rgba(20, 25, 30, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 200, 255, 0.5);
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #00c8ff, #0080ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .contact-link {
+            backdrop-filter: blur(8px);
+            background: rgba(20, 25, 30, 0.7);
+            transition: all 0.4s ease;
+            border-radius: 1rem;
+            border: 1px solid rgba(0, 200, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .contact-link:hover {
+            transform: translateX(5px);
+            background: rgba(0, 200, 255, 0.1);
+            border-color: rgba(0, 200, 255, 0.3);
+        }
+        .contact-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #00c8ff, #0080ff);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .contact-link:hover::before {
+            opacity: 1;
+        }
+        .tech-tag {
+            background: rgba(0, 200, 255, 0.1);
+            border: 1px solid rgba(0, 200, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        .tech-tag:hover {
+            background: rgba(0, 200, 255, 0.2);
+            border-color: rgba(0, 200, 255, 0.3);
+        }
+        .hero-badge {
+            background: rgba(0, 200, 255, 0.1);
+            border: 1px solid rgba(0, 200, 255, 0.2);
+            border-radius: 4rem;
+            padding: 0.5rem 1.5rem;
+            font-weight: 500;
+            font-size: 0.875rem;
+            color: #00c8ff;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .hero-badge:hover {
+            background: rgba(0, 200, 255, 0.2);
+            transform: translateY(-2px);
+        }
+        .profile-image-container {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 4px solid rgba(0, 200, 255, 0.3);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            filter: drop-shadow(0 10px 25px rgba(0, 200, 255, 0.3));
+            transition: all 0.3s ease;
+        }
+        .profile-image-container:hover {
+            transform: scale(1.05);
+            border-color: rgba(0, 200, 255, 0.5);
+        }
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .profile-image.loaded {
+            opacity: 1;
+        }
+        .loading-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(10, 16, 21, 0.7);
+        }
+        .loading-spinner {
+            width: 40px;
+            height: 40px;
+            animation: spin 1.5s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Additional responsive styles */
+        @media (max-width: 768px) {
+            .profile-image-container {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 0.75rem;
+            }
+            
+            h1.gradient-text {
+                font-size: 3rem;
+                margin-bottom: 0.5rem;
+            }
+            
+            .hero-description {
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+                padding: 0 0.5rem;
+            }
+            
+            .contact-grid {
+                gap: 0.75rem;
+                margin-bottom: 1rem;
+            }
+            
+            .contact-link {
+                padding: 0.75rem;
+            }
+            
+            .contact-link span.text-2xl {
+                font-size: 1.25rem;
+            }
+            
+            .contact-link i.text-2xl {
+                font-size: 1.25rem;
+            }
+            
+            section {
+                padding: 0.5rem;
+            }
+            
+            .container {
+                padding: 0 0.5rem;
+            }
+        }
+        
+        /* Small phones */
+        @media (max-width: 480px) {
+            .profile-image-container {
+                width: 100px;
+                height: 100px;
+                border-width: 3px;
+                margin-bottom: 0.5rem;
+            }
+            
+            h1.gradient-text {
+                font-size: 2.5rem;
+                margin-bottom: 0.25rem;
+            }
+            
+            .hero-description {
+                font-size: 0.85rem;
+                margin-bottom: 0.75rem;
+                padding: 0 0.25rem;
+                max-width: 290px;
+            }
+            
+            .hero-badge {
+                font-size: 0.75rem;
+                padding: 0.4rem 1rem;
+                margin-top: 0.5rem;
+            }
+            
+            .contact-grid {
+                gap: 0.5rem;
+                margin-bottom: 0.75rem;
+            }
+            
+            .contact-link {
+                padding: 0.5rem !important;
+            }
+            
+            section {
+                padding: 0.25rem;
+            }
+            
+            .container {
+                padding: 0;
+            }
+        }
+    </style>
+    <script>
+        function scrollToProjects() {
+            document.getElementById('projects').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const profileImage = document.getElementById('profileImage');
+            const loadingAnimation = document.getElementById('loadingAnimation');
+            
+            profileImage.onload = function() {
+                profileImage.classList.add('loaded');
+                loadingAnimation.style.display = 'none';
+            };
+            
+            // If the image is already cached, the onload event may not fire
+            if (profileImage.complete) {
+                profileImage.classList.add('loaded');
+                loadingAnimation.style.display = 'none';
+            }
+        });
+    </script>
+</head>
+<body class="bg-[#0a1015] text-gray-200 min-h-screen">
+    <div class="animated-bg"></div>
+    <div class="animated-blob blob1"></div>
+    <div class="animated-blob blob2"></div>
+    <div class="animated-blob blob3"></div>
+    
+    <div class="content">
+        <!-- Contact Section -->
+        <section class="h-screen flex flex-col justify-center items-center px-6">
+            <div class="container mx-auto max-w-4xl flex flex-col justify-center flex-grow">
+                <div class="flex flex-col items-center text-center mb-8 md:mb-16">
+                    <a href="https://t.me/kr1ke" target="_blank" rel="noopener noreferrer">
+                        <div class="profile-image-container">
+                            <div id="loadingAnimation" class="loading-animation">
+                                <svg class="loading-spinner" viewBox="0 0 50 50">
+                                    <circle cx="25" cy="25" r="20" fill="none" stroke="#00c8ff" stroke-width="4" stroke-linecap="round">
+                                        <animate attributeName="stroke-dasharray" values="1,150;90,150;90,150" dur="1.5s" repeatCount="indefinite" />
+                                        <animate attributeName="stroke-dashoffset" values="0;-35;-124" dur="1.5s" repeatCount="indefinite" />
+                                    </circle>
+                                </svg>
+                            </div>
+                            <img id="profileImage" src="https://t.me/i/userpic/320/qGzg_dXC8YeLTw2-VFQMNtyfXQDqQ9dobV7wh6qj_U0.jpg" alt="Илья Богданчиков (KR1KE) - Frontend и Backend Developer" class="profile-image">
+                        </div>
+                    </a>
+                    <a href="https://t.me/kr1ke" target="_blank" rel="noopener noreferrer" class="hover:opacity-80 transition-opacity">
+                        <h1 class="text-7xl font-bold mb-4 gradient-text">KR1KE</h1>
+                    </a>
+                    <p class="text-gray-400 text-xl max-w-2xl mx-auto mb-8 hero-description">javascript enjoyer</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-4 md:gap-6 mb-8 md:mb-16 contact-grid">
+                    <a href="https://t.me/kr1ke" 
+                       class="contact-link block p-6 hover:border-[#00c8ff]/30" target="_blank" rel="noopener noreferrer">
+                        <div class="flex items-center gap-4">
+                            <i class="fa-brands fa-telegram text-2xl text-[#00c8ff]"></i>
+                            <span class="text-2xl">Телега</span>
+                            <span class="ml-auto">
+                                <i class="fa-solid fa-arrow-right text-xl text-[#00c8ff]"></i>
+                            </span>
+                        </div>
+                    </a>
+                    <a href="https://github.com/yourusername" 
+                       class="contact-link block p-6 hover:border-[#00c8ff]/30" target="_blank" rel="noopener noreferrer">
+                        <div class="flex items-center gap-4">
+                            <i class="fa-brands fa-github text-2xl text-[#00c8ff]"></i>
+                            <span class="text-2xl">ГитХаб</span>
+                            <span class="ml-auto">
+                                <i class="fa-solid fa-arrow-right text-xl text-[#00c8ff]"></i>
+                            </span>
+                        </div>
+                    </a>
+                    <a href="https://hh.ru/resume/yourid" 
+                       class="contact-link block p-6 hover:border-[#00c8ff]/30" target="_blank" rel="noopener noreferrer">
+                        <div class="flex items-center gap-4">
+                            <i class="fa-solid fa-file-lines text-2xl text-[#00c8ff]"></i>
+                            <span class="text-2xl">Резюме</span>
+                            <span class="ml-auto">
+                                <i class="fa-solid fa-arrow-right text-xl text-[#00c8ff]"></i>
+                            </span>
+                        </div>
+                    </a>
+                </div>
+                <div class="flex justify-center">
+                    <span class="hero-badge animate-pulse flex items-center gap-2" onclick="scrollToProjects()">
+                        Личные проекты
+                        <i class="fa-solid fa-chevron-down text-sm"></i>
+                    </span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 px-6">
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="text-4xl font-bold mb-16 gradient-text">Projects</h2>
+                <div class="space-y-12">
+                    <!-- Project 1 -->
+                    <div class="project-card rounded-xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c" 
+                             alt="JavaScript, Vue.js, and Node.js Project by KR1KE" 
+                             class="w-full h-64 object-cover">
+                        <div class="p-8 space-y-6">
+                            <h3 class="text-3xl font-semibold">Project One</h3>
+                            <p class="text-gray-400 text-lg">A modern web application built with React and Node.js, featuring real-time data processing and interactive visualizations.</p>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="tech-tag px-4 py-2 rounded-full text-sm text-[#00c8ff]">React</span>
+                                <span class="tech-tag px-4 py-2 rounded-full text-sm text-[#00c8ff]">Node.js</span>
+                                <span class="tech-tag px-4 py-2 rounded-full text-sm text-[#00c8ff]">WebSocket</span>
+                                <span class="tech-tag px-4 py-2 rounded-full text-sm text-[#00c8ff]">D3.js</span>
+                            </div>
+                            <div class="flex gap-6 pt-4">
+                                <a href="#" class="text-[#00c8ff] hover:text-[#0080ff] flex items-center gap-2">
+                                    <span>View Project</span>
+                                    <span class="text-lg">→</span>
+                                </a>
+                                <a href="#" class="text-[#00c8ff] hover:text-[#0080ff] flex items-center gap-2">
+                                    <span>GitHub</span>
+                                    <span class="text-lg">→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card rounded-xl overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3" 
+                             alt="Nest.js and Vue.js Project by Илья Богданчиков" 
+                             class="w-full h-64 object-cover">
+                        <div class="p-8 space-y-6">
+                            <h3 class="text-3xl font-semibold">Project Two</h3>
+                            <p class="text-gray-400 text-lg">An e-commerce platform with advanced filtering and search capabilities, built using modern web technologies.</p>
+                            <div class="flex flex-wrap gap-3">
+                                <span class="tech-tag px-4 py-2 rounded-full text-sm text-[#00c8ff]">Next.js</span>
+                                <span class="tech-tag px-4 py-2 rounded-full text-sm text-[#00c8ff]">TypeScript</span>
+                                <span class="tech-tag px-4 py-2 rounded-full text-sm text-[#00c8ff]">Tailwind CSS</span>
+                                <span class="tech-tag px-4 py-2 rounded-full text-sm text-[#00c8ff]">PostgreSQL</span>
+                            </div>
+                            <div class="flex gap-6 pt-4">
+                                <a href="#" class="text-[#00c8ff] hover:text-[#0080ff] flex items-center gap-2">
+                                    <span>View Project</span>
+                                    <span class="text-lg">→</span>
+                                </a>
+                                <a href="#" class="text-[#00c8ff] hover:text-[#0080ff] flex items-center gap-2">
+                                    <span>GitHub</span>
+                                    <span class="text-lg">→</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Илья Богданчиков",
+      "alternateName": "KR1KE",
+      "url": "https://yourportfolio.com",
+      "image": "https://t.me/i/userpic/320/qGzg_dXC8YeLTw2-VFQMNtyfXQDqQ9dobV7wh6qj_U0.jpg",
+      "sameAs": [
+        "https://github.com/yourusername",
+        "https://t.me/kr1ke"
+      ],
+      "jobTitle": "Frontend & Backend Developer",
+      "knowsAbout": ["JavaScript", "Vue", "Node.js", "Nest.js", "Frontend Development", "Backend Development"]
+    }
+    </script>
+</body>
+</html>
